@@ -29,7 +29,7 @@ namespace Bittrex.Helpers
 
     public class ConfigRetrieverRegistry : ConfigRetrieverBase
     {
-        public RegistryView View = RegistryView.Registry64;
+        public RegistryView View = RegistryView.Registry32;
         public override bool HasConfig
         {
             get
