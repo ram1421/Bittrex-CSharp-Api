@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!--*-->
+    <id>$id$</id>
+    <!--*-->
+    <version>1.0.0.0</version>
+    <title>
+    </title>
+    <!--*-->
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/raghupallavi/Bittrex-CSharp-Api</projectUrl>
+    <!--
+    <licenseUrl></licenseUrl>
+    <iconUrl></iconUrl>
+-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--*-->
+    <description>$description$</description>
+    <!--*-->
+    <releaseNotes>first&amp;#x0020;use</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>
+    </tags>
+    <dependencies>
+   <group targetFramework="net452">
+      <dependency id="Newtonsoft.Json" version="10.0.3" />
+   </group>
+</dependencies>
+  </metadata>
+</package>
