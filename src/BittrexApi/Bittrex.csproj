@@ -34,6 +34,7 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,7 @@
     <Compile Include="Api\AccountApi.cs" />
     <Compile Include="Api\MarketApi.cs" />
     <Compile Include="Api\PublicApi.cs" />
+    <Compile Include="Helpers\ConfigRetrieverBase.cs" />
     <Compile Include="Helpers\HttpUtilities.cs" />
     <Compile Include="Helpers\JsonResultArrayWrapper.cs" />
     <Compile Include="Helpers\JsonResultWrapper.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="package.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,50 +4,17 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Win32;
 
 namespace Bittrex.Helpers
 {
     public static class HttpUtilities
     {
-        private static Tuple<string, string> GetApiKeyAndSecret()
-        {
-            string apiKey = null;
-            string apiSecret = null;
-
-            using (var bittrexRegKey = Registry.LocalMachine.OpenSubKey(@"Software\Bittrex"))
-            {
-                if (bittrexRegKey != null)
-                {
-                    apiKey = bittrexRegKey.GetValue("ApiKey") as string;
-                    apiSecret = bittrexRegKey.GetValue("ApiSecret") as string;
-                }
-            }
-
-            if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(apiSecret))
-            {
-                using (var bittrexRegKey = Registry.CurrentUser.OpenSubKey(@"Software\Bittrex"))
-                {
-                    if (bittrexRegKey != null)
-                    {
-                        apiKey = bittrexRegKey.GetValue("ApiKey") as string;
-                        apiSecret = bittrexRegKey.GetValue("ApiSecret") as string;
-                    }
-                }
-            }
-
-            if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(apiSecret))
-            {
-                throw new Exception("ApiKey/ApiSecret not specified");
-            }
-
-            return new Tuple<string, string>(apiKey, apiSecret);
-        }
+        public static ConfigRetrieverBase ConfigRetriever { get; set; } = new ConfigRetrieverRegistry();
 
         public static async Task<string> GetHttpResponseAsync(string url, bool sendApiSign = false)
         {
             string apiSignString = string.Empty;
-            var apiKeyAndSecret = GetApiKeyAndSecret();
+            var apiKeyAndSecret = ConfigRetriever.GetApiAndSecret();
             var apiKey = apiKeyAndSecret.Item1;
             var apiSecret = apiKeyAndSecret.Item2;
 

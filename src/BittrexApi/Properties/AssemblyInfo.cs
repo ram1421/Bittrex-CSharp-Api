@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("BittrexApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Library for connecting to Bittrex API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("raghupallavi")]
 [assembly: AssemblyProduct("BittrexApi")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
