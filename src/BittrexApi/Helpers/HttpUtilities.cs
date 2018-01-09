@@ -20,8 +20,6 @@ namespace Bittrex.Helpers
 
             if (sendApiSign)
             {
-                using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
-                {
                     var nonce = (long)((DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalMilliseconds);
                     using (HMACSHA512 hmac = new HMACSHA512(Encoding.UTF8.GetBytes(apiSecret)))
                     {
@@ -37,7 +35,6 @@ namespace Bittrex.Helpers
                         var hash = hmac.ComputeHash(new MemoryStream(Encoding.UTF8.GetBytes(url)));
                         apiSignString = String.Concat(Array.ConvertAll(hash, x => x.ToString("X2")));
                     }
-                }
             }
 
             var client = new HttpClient();
